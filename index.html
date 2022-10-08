@@ -14268,18 +14268,18 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><h1 style="text-align:left">Project Goal</h1></p>
-<p>we plan to use public sleep quality datasets to answer the following questions through the extraction, analysis, and visualization of data.</p>
-<p>1. Which factors have the biggest impact on sleep quality? (FitBit Fitness Tracker dataset)</p>
+<p>We plan to use two public sleep quality datasets we found to answer the following questions through the extraction, analysis, and visualization of data.</p>
+<p>1. Which factors have the biggest impact on sleep quality?</p>
 <p>2. What can we do to improve sleep quality in this modern society? </p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><h1 style="text-align:left">Data Sets</h1></p>
+<p><h1 style="text-align:left">Datasets</h1></p>
 <p>Dataset 1: <a href="https://www.kaggle.com/datasets/arashnic/fitbit">FitBit Fitness Tracker dataset</a></p>
-<p>We want to analyze this dataset because the data in this dataset is very clean and inclusive. 30 participants consented to submit their personal fitness data for analysis. Fitbit trackers on these participants record a lot of useful data including sleep quality data. This provides an advantage for us because we can easily correlate their sleep behavior with their daily activities to answer our project questions. Fitness data includes participants's sleep during the day, daily steps, their weights, heartrates, calories consumption</p>
+<p>This is a public dataset from Kaggle where 30 FitBit users consented to submit their personal fitness data for analysis. Fitbit trackers on these participants record a lot of useful data including sleep quality, sleep during the day, daily steps, weights, heartrates, daily calories consumption. This dataset is divided into several CSV files where each CSV file stores one feature of their fitness data. Each participant is labeled with a unique ID in those CSV files which makes it easier for us to correlate their sleep behaviors with their daily activities by joining the tables to answer our project questions.</p>
 <p>Dataset 2: <a href="https://www.kaggle.com/datasets/danagerous/sleep-data">Sleep Cycle iOS App dataset</a></p>
-<p>Justification: put your reasons to choose this dataset here! </p>
+<p>YOUR REASONS TO ANALYZE THIS DATASET! </p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14290,12 +14290,14 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/sleepdata.csv&quot;</span><span class="p">)</span>
-<span class="n">df</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;../data/FitBitData&quot;</span><span class="p">)</span>
+<span class="n">df_list</span><span class="o">=</span><span class="p">{</span><span class="n">file</span><span class="p">[:</span><span class="n">file</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/FitBitData/&quot;</span><span class="o">+</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">}</span>
+<span class="n">df_list</span><span class="p">[</span><span class="s2">&quot;minuteIntensitiesWide&quot;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14311,7 +14313,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
@@ -14334,57 +14336,297 @@ a.anchor-link {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Start;End;Sleep quality;Time in bed;Wake up;Sleep Notes;Heart rate;Activity (steps)</th>
+      <th>Id</th>
+      <th>ActivityHour</th>
+      <th>Intensity00</th>
+      <th>Intensity01</th>
+      <th>Intensity02</th>
+      <th>Intensity03</th>
+      <th>Intensity04</th>
+      <th>Intensity05</th>
+      <th>Intensity06</th>
+      <th>Intensity07</th>
+      <th>...</th>
+      <th>Intensity50</th>
+      <th>Intensity51</th>
+      <th>Intensity52</th>
+      <th>Intensity53</th>
+      <th>Intensity54</th>
+      <th>Intensity55</th>
+      <th>Intensity56</th>
+      <th>Intensity57</th>
+      <th>Intensity58</th>
+      <th>Intensity59</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2014-12-29 22:57:49;2014-12-30 07:30:13;100%;8...</td>
+      <td>1503960366</td>
+      <td>4/13/2016 12:00:00 AM</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2014-12-30 21:17:50;2014-12-30 21:33:54;3%;0:1...</td>
+      <td>1503960366</td>
+      <td>4/13/2016 1:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2014-12-30 22:42:49;2014-12-31 07:13:31;98%;8:...</td>
+      <td>1503960366</td>
+      <td>4/13/2016 2:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2014-12-31 22:31:01;2015-01-01 06:03:01;65%;7:...</td>
+      <td>1503960366</td>
+      <td>4/13/2016 3:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2015-01-01 22:12:10;2015-01-02 04:56:35;72%;6:...</td>
+      <td>1503960366</td>
+      <td>4/13/2016 4:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>882</th>
-      <td>2018-02-12 21:54:14;2018-02-13 07:02:15;91%;9:...</td>
+      <th>21640</th>
+      <td>8877689391</td>
+      <td>5/13/2016 3:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>883</th>
-      <td>2018-02-13 23:49:19;2018-02-14 07:00:53;81%;7:...</td>
+      <th>21641</th>
+      <td>8877689391</td>
+      <td>5/13/2016 4:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>884</th>
-      <td>2018-02-14 21:24:05;2018-02-15 06:20:52;71%;8:...</td>
+      <th>21642</th>
+      <td>8877689391</td>
+      <td>5/13/2016 5:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>885</th>
-      <td>2018-02-15 21:36:32;2018-02-16 06:50:31;80%;9:...</td>
+      <th>21643</th>
+      <td>8877689391</td>
+      <td>5/13/2016 6:00:00 AM</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>886</th>
-      <td>2018-02-16 22:52:29;2018-02-17 07:48:04;91%;8:...</td>
+      <th>21644</th>
+      <td>8877689391</td>
+      <td>5/13/2016 7:00:00 AM</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>887 rows × 1 columns</p>
+<p>21645 rows × 62 columns</p>
 </div>
 </div>
 

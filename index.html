@@ -14275,6 +14275,24 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1>Background of Oaxaca-Blinder-Kitagawa decomposition</h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Oaxaca-Blinder-Kitagawa decomposition is widely used by quantitative social scientists to quantify discrimination between two groups of people. The basic idea is to control for as many independent variables as possible to make two groups 'identical' and see if there are still unexplained difference in dependent variables. This method was first proposed to study the gender wage gap. I will use this example to illustrate the method.</p><p>Let us say that wage (W) is dependent on education (ED), experience (EXP) and whether the worker is unionized (UNION). We can run two linear regression models to estimate wage for both men and women</p>
+<p>$W_m=a_m+b_m{ED}_m+c_mEXP_m+d_mUNION_m$</p>
+<p>$W_f=a_f+b_f{ED}_f+c_fEXP_f+d_fUNION_f$</p>
+<p>subscript m denotes male and f denotes female</p>
+<p>If we subsitute average $\overline{ED}_m, \overline{EXP}_m, \overline{UNION}_m,\overline{ED}_f, \overline{EXP}_f, \overline{UNION}_f$ for both male and female group then the raw gender wage gap $W_m-W_f$ is the following:</p><p>$W_m-W_f=a_m+b_m\overline{ED}_m+c_m\overline{EXP}_m+d_m\overline{UNION}_m-$ <br>
+$\hspace{3cm}(a_f+b_f\overline{ED}_f+c_f\overline{EXP}_f+d_f\overline{UNION}_f)$</p><p>To isolate explained and unexplained gender wage gap we do a simple math trick: <br>
+add and subtract $b_m\overline{ED}_f,c_m\overline{EXP}_f, f_m\overline{UNION}_f$ on the right hand side of equation</p><p>$W_m-W_f=b_m(\overline{ED}_m-\overline{ED}_f)+c_m(\overline{EXP}_m-\overline{EXP}_f)+d_m(\overline{UNION}_m-\overline{UNION}_f)+$ <br>
+$\hspace{3cm}a_m-a_f+(b_m-b_f)\overline{ED}_f+(c_m-c_f)\overline{EXP}_f+(d_m-d_f)\overline{UNION}_f$</p>
+<p>The sum of first three terms on the right hand is the explained part of wage gap due to gender difference in education, experience and whether unionized and the sum of last four terms are the unexplained part of wage gap that might be discrimination</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><h1 style="text-align:left">Collaboration Plan</h1></p>
 <p>There is no collaboration plan because Jingzhi Yang will be the only one doing this project</p>
 </div>
@@ -14299,7 +14317,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14325,7 +14343,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
 
 
@@ -14496,6 +14514,49 @@ a.anchor-link {
 </table>
 <p>5 rows × 21 columns</p>
 </div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_big</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Index([&#39;Applicant_ID&#39;, &#39;Applicant_Gender&#39;, &#39;Owned_Car&#39;, &#39;Owned_Realty&#39;,
+       &#39;Total_Children&#39;, &#39;Total_Income&#39;, &#39;Income_Type&#39;, &#39;Education_Type&#39;,
+       &#39;Family_Status&#39;, &#39;Housing_Type&#39;, &#39;Owned_Mobile_Phone&#39;,
+       &#39;Owned_Work_Phone&#39;, &#39;Owned_Phone&#39;, &#39;Owned_Email&#39;, &#39;Job_Title&#39;,
+       &#39;Total_Family_Members&#39;, &#39;Applicant_Age&#39;, &#39;Years_of_Working&#39;,
+       &#39;Total_Bad_Debt&#39;, &#39;Total_Good_Debt&#39;, &#39;Status&#39;],
+      dtype=&#39;object&#39;)</pre>
 </div>
 
 </div>

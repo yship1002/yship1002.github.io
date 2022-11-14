@@ -14266,14 +14266,35 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><h1 style="text-align:left">Project Goal</h1></p>
-<p>In this project I will first build two seperate models to predict whether your credit card application will be approved. Then I will be using Oaxaca-Blinder-Kitagawa decomposition, a regression analysis I learnt in my Economics of Discriminiation class to isolate and quantify discrimination in credit card application.</p>
+<li><a href="#Background">Background</a></li>
+<li><a href="#Project Goal">Project Goal</a></li>
+<li><a href="#Dataset">Dataset</a></li>
+<li><a href="#Methodology">Methodology</a></li>
+<ol>Exploratory Data Analysis
+        <li><a href="#Part 1: Real bank Credit Approval dataset">Part 1: Real bank Credit Approval dataset</a></li>
+        <li><a href="#Part 2: Cleaned Credit approval dataset from UCI">Part 2: Cleaned Credit approval dataset from UCI</a></li>
+</ol>
+
+<li><a href="#Building Prediction Model">Building Prediction Model</a></li>
+<ol>Building Prediction Model
+<li><a href="#KNN">KNN</a></li>
+<li><a href="#Logistic Regression">Logistic Regression</a></li>
+</ol>
+<li><a href="#Oaxaca-Blinder-Kitagawa Decomposition">Oaxaca-Blinder-Kitagawa Decomposition</a></li>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="Project Goal"></a></p>
+<p><h1 style="text-align:left">Project Goal</h1></p>
+<p>In this project I will first build two seperate models to predict whether your credit card application will be approved.(1.KNN 2.Logistic Regression) Then I will be using Oaxaca-Blinder-Kitagawa decomposition, a regression analysis I learnt in my Economics of Discriminiation class to isolate and quantify discrimination in credit card application.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="Background"></a></p>
 <p><h1>Background</h1></p>
-<h2>Oaxaca-Blinder-Kitagawa decomposition</h2>
+<h2>Oaxaca-Blinder-Kitagawa Decomposition</h2>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14291,6 +14312,7 @@ $\hspace{3cm}a_m-a_f+(b_m-b_f)\overline{ED}_f+(c_m-c_f)\overline{EXP}_f+(d_m-d_f
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="Dataset"></a></p>
 <p><h1 style="text-align:left">Datasets</h1></p>
 <p>The following two datasets have all the necessary information I need in order to build prediction model and quantify discrimination in credit card application. I also provided descriptions of two datasets as well as how I am going to use them.</p>
 <p>Dataset 1: <a href="https://www.kaggle.com/datasets/caesarmario/application-data">Real bank Credit Approval dataset</a></p>
@@ -14301,26 +14323,34 @@ $\hspace{3cm}a_m-a_f+(b_m-b_f)\overline{ED}_f+(c_m-c_f)\overline{EXP}_f+(d_m-d_f
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="Methodology"></a></p>
 <p><h1>Methodology</h1></p>
-<p>Each dataset is very self-contained. Therefore for each dataset, I will first train two models to predict the outcome of the credit card application and compare the accuracy of two prediction models. Then I will use Oaxaca-Blinder-Kitagawa decomposition to isolate and quantify discrimination in credit card application</p>
+<p>Each dataset is very self-contained. Therefore for each dataset, I will first train two models to predict the outcome of the credit card application and compare the accuracy of two prediction models.(1.KNN 2.Logistic Regression) Then I will use Oaxaca-Blinder-Kitagawa decomposition to isolate and quantify discrimination in credit card application</p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="Collaboration Plan"></a></p>
 <p><h1 style="text-align:left">Collaboration Plan</h1></p>
 <p>There is no collaboration plan because Jingzhi Yang will be the only one doing this project</p>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><h1 style="text-align:left">Exploratory Data Analysis</h1></p>
-<h2 style="text-align:left">Part 1: Real bank Credit Approval dataset</h2>
-<h2>The first step is to load the datasets.</h2>
+<p><h1 style="text-align:left">Exploratory Data Analysis</h1>
+<a id="Part 1: Real bank Credit Approval dataset"></a></p>
+<p><h2 style="text-align:left">Part 1: Real bank Credit Approval dataset</h2></p>
+<p>The first step is to load the datasets.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It seems like Panda infer the data types correctly so there is nothing to done here. There are also no NAN values.Since there are no other table to join we can drop the applicant_id</p>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14329,8 +14359,10 @@ $\hspace{3cm}a_m-a_f+(b_m-b_f)\overline{ED}_f+(c_m-c_f)\overline{EXP}_f+(d_m-d_f
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
 <span class="kn">from</span> <span class="nn">Oaxaca</span> <span class="kn">import</span> <span class="n">Oaxaca</span>
 <span class="n">df_big</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Big_Data.csv&quot;</span><span class="p">)</span>
+<span class="n">df_big</span><span class="o">=</span><span class="n">df_big</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Applicant_ID&quot;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df_big</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 <span class="n">df_big</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
@@ -14353,248 +14385,6 @@ $\hspace{3cm}a_m-a_f+(b_m-b_f)\overline{ED}_f+(c_m-c_f)\overline{EXP}_f+(d_m-d_f
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Applicant_ID</th>
-      <th>Applicant_Gender</th>
-      <th>Owned_Car</th>
-      <th>Owned_Realty</th>
-      <th>Total_Children</th>
-      <th>Total_Income</th>
-      <th>Income_Type</th>
-      <th>Education_Type</th>
-      <th>Family_Status</th>
-      <th>Housing_Type</th>
-      <th>...</th>
-      <th>Owned_Work_Phone</th>
-      <th>Owned_Phone</th>
-      <th>Owned_Email</th>
-      <th>Job_Title</th>
-      <th>Total_Family_Members</th>
-      <th>Applicant_Age</th>
-      <th>Years_of_Working</th>
-      <th>Total_Bad_Debt</th>
-      <th>Total_Good_Debt</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5008806</td>
-      <td>M</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>112500</td>
-      <td>Working                                       ...</td>
-      <td>Secondary / secondary special                 ...</td>
-      <td>Married                                       ...</td>
-      <td>House / apartment                             ...</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Security staff                                ...</td>
-      <td>2</td>
-      <td>59</td>
-      <td>4</td>
-      <td>0</td>
-      <td>30</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>5008808</td>
-      <td>F</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>270000</td>
-      <td>Commercial associate                          ...</td>
-      <td>Secondary / secondary special                 ...</td>
-      <td>Single / not married                          ...</td>
-      <td>House / apartment                             ...</td>
-      <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Sales staff                                   ...</td>
-      <td>1</td>
-      <td>53</td>
-      <td>9</td>
-      <td>0</td>
-      <td>5</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5008809</td>
-      <td>F</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>270000</td>
-      <td>Commercial associate                          ...</td>
-      <td>Secondary / secondary special                 ...</td>
-      <td>Single / not married                          ...</td>
-      <td>House / apartment                             ...</td>
-      <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Sales staff                                   ...</td>
-      <td>1</td>
-      <td>53</td>
-      <td>9</td>
-      <td>0</td>
-      <td>5</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5008810</td>
-      <td>F</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>270000</td>
-      <td>Commercial associate                          ...</td>
-      <td>Secondary / secondary special                 ...</td>
-      <td>Single / not married                          ...</td>
-      <td>House / apartment                             ...</td>
-      <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Sales staff                                   ...</td>
-      <td>1</td>
-      <td>53</td>
-      <td>9</td>
-      <td>0</td>
-      <td>27</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5008811</td>
-      <td>F</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>270000</td>
-      <td>Commercial associate                          ...</td>
-      <td>Secondary / secondary special                 ...</td>
-      <td>Single / not married                          ...</td>
-      <td>House / apartment                             ...</td>
-      <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Sales staff                                   ...</td>
-      <td>1</td>
-      <td>53</td>
-      <td>9</td>
-      <td>0</td>
-      <td>39</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 21 columns</p>
-</div>
-</div>
-
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Applicant_ID             int64
-Applicant_Gender        object
-Owned_Car                int64
-Owned_Realty             int64
-Total_Children           int64
-Total_Income             int64
-Income_Type             object
-Education_Type          object
-Family_Status           object
-Housing_Type            object
-Owned_Mobile_Phone       int64
-Owned_Work_Phone         int64
-Owned_Phone              int64
-Owned_Email              int64
-Job_Title               object
-Total_Family_Members     int64
-Applicant_Age            int64
-Years_of_Working         int64
-Total_Bad_Debt           int64
-Total_Good_Debt          int64
-Status                   int64
-dtype: object</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2>It seems like Panda infer the data types correctly so there is nothing to done here. There are also no NAN values. We can start analysis now. Since there are no other table to join we can drop the applicant_id</h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_big</span><span class="o">=</span><span class="n">df_big</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Applicant_ID&quot;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">df_big</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -14758,15 +14548,44 @@ dtype: object</pre>
 
 </div>
 
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Applicant_Gender        object
+Owned_Car                int64
+Owned_Realty             int64
+Total_Children           int64
+Total_Income             int64
+Income_Type             object
+Education_Type          object
+Family_Status           object
+Housing_Type            object
+Owned_Mobile_Phone       int64
+Owned_Work_Phone         int64
+Owned_Phone              int64
+Owned_Email              int64
+Job_Title               object
+Total_Family_Members     int64
+Applicant_Age            int64
+Years_of_Working         int64
+Total_Bad_Debt           int64
+Total_Good_Debt          int64
+Status                   int64
+dtype: object</pre>
 </div>
 
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2>Before we build a prediction model let us explore some relationships between different features of data</h2>
+
 </div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14894,8 +14713,15 @@ dtype: object</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 style="text-align:left">Part 2: Cleaned Credit approval dataset from UCI</h2>
-<h2>The first step is to load the datasets and check data types</h2>
+<p><a id="Part 2: Cleaned Credit approval dataset from UCI"></a></p>
+<p><h2 style="text-align:left">Part 2: Cleaned Credit approval dataset from UCI</h2></p>
+<p>The first step is to load the datasets and check data types</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><p>It looks like panda infer the data types correctly.<br>Before we study the discrimination let us take a look at the distribution of the dataset&lt;/&gt;</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -15102,11 +14928,6 @@ dtype: object</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2>It looks like panda infer the data types correctly.<br>Before we study the discrimination let us take a look at the distribution of the dataset</h2>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><h2>What is the Job distribution of applicants?</h2></p>
 <p>It looks like a lot of people work in energy sector</p>
 </div>
@@ -15273,22 +15094,36 @@ dtype: object</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Building Prediction Model</h1>
+<p><a id="KNN"></a></p>
+<p><h1>Building Prediction Model</h1></p>
+<h2>Part1: k-Nearest Neighbors(KNN)</h2>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2>We are ready to explore discrimination in credit card application using Oaxaca-Blinder-Kitagawa decomposition</h2>
+<p><a id="Logistic Regression"></a></p>
+<h2>Part2: Logistic Regression</h2>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2>We will be using <a href="https://www.statsmodels.org/dev/generated/statsmodels.stats.oaxaca.OaxacaBlinder.html">statsmodel Oaxaca package</a> to perform analysis</h2>
+<p><a id="Oaxaca-Blinder-Kitagawa Decomposition"></a></p>
+<h1>Oaxaca-Blinder-Kitagawa Decomposition</h1>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2>First we start with gender discrimination</h2>
+<p>We will be using <a href="https://www.statsmodels.org/dev/generated/statsmodels.stats.oaxaca.OaxacaBlinder.html">statsmodel Oaxaca package</a> to perform analysis</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We are ready to explore discrimination in credit card application using Oaxaca-Blinder-Kitagawa decomposition</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First we start with gender discrimination</p>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
